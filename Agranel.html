@@ -49,6 +49,7 @@
         .navbar .nav-links a:hover {
             background-color: black;
         }
+        /* Estilos del formulario de agregar producto */
         
         .form-agregar {
             background-color: rgba(44, 43, 43, 0.7);
@@ -59,6 +60,26 @@
             text-align: center;
             padding-top: 20px;
         }
+        
+        .form-agregar h2 {
+            font-size: 24px;
+            /* Tamaño de fuente más grande para el encabezado */
+        }
+        
+        .form-agregar label {
+            font-size: 18px;
+            /* Tamaño de fuente para las etiquetas */
+        }
+        
+        .form-agregar input {
+            padding: 10px;
+            /* Tamaño del campo de entrada más grande */
+            font-size: 18px;
+            /* Tamaño de fuente más grande para los campos de entrada */
+            width: calc(100% - 24px);
+            /* Ajustar el ancho para que se ajuste al contenedor */
+        }
+        /* Estilos de la tabla */
         
         table {
             width: 100%;
@@ -85,19 +106,23 @@
         th {
             background-color: #333;
         }
+        /* Estilos de la barra de búsqueda */
         
         .search-container {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             color: white;
             background-color: rgba(44, 43, 43, 0.7);
         }
         
         .search-container input {
-            padding: 8px;
-            font-size: 16px;
+            padding: 11px;
+            /* Reducir el padding para hacer el campo más pequeño */
+            font-size: 18px;
+            /* Reducir el tamaño de la fuente */
             border: none;
             border-radius: 4px;
             width: 100%;
+            /* Reducir el ancho para hacer el campo más pequeño */
             box-sizing: border-box;
         }
         
@@ -170,6 +195,7 @@
             <div class="nav-links">
                 <a href="index.html">Paquete</a>
                 <a href="Agranel.html">Agranel</a>
+                <a href="dezechable.html">Desechable</a>
             </div>
         </div>
     </div>
@@ -254,6 +280,9 @@
                 precio: precio
             }).then(() => {
                 alert('Producto guardado en Firebase');
+                // Limpiar los campos del formulario
+                document.getElementById('nombreproducto').value = '';
+                document.getElementById('precio').value = '';
                 loadProducts(); // Cargar los productos después de guardar
             }).catch((error) => {
                 alert('Error al guardar el producto: ' + error.message);
